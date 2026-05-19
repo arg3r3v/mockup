@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerardo Arcos</title>
+
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.2/dist/aframe-extras.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a-scene loading-screen="dotsColor: white; backgroundColor: white">
+      
+      <!-- Assets: modelos GLB separados -->
+      <a-assets>
+        <a-asset-item id="bodega" src="models/bodega.glb"></a-asset-item>
+        <a-asset-item id="luces" src="models/luces.glb"></a-asset-item>
+        <a-asset-item id="piezas" src="models/piezas.glb"></a-asset-item>
+        <a-asset-item id="sillas" src="models/sillas.glb"></a-asset-item>
+        <a-asset-item id="utileria" src="models/utileria.glb"></a-asset-item>
+
+        <a-asset-item id="floorMesh" src="models/navmesh.glb"></a-asset-item>
+      </a-assets>
+      
+<a-entity gltf-model="#floorMesh" nav-mesh visible="false"></a-entity>
+
+      <!-- Modelos GLB cargados -->
+      <a-entity gltf-model="#bodega"></a-entity>
+      <a-entity gltf-model="#luces"></a-entity>
+      <a-entity gltf-model="#piezas"></a-entity>
+      <a-entity gltf-model="#sillas"></a-entity>
+      <a-entity gltf-model="#utileria"></a-entity>
+
+      <!-- Cámara y controles -->
+<a-entity id="rig"
+  movement-controls="constrainToNavMesh: true;
+                     controls: keyboard, nipple; speed: 0.06; acceleration: 20;"
+  position="0 0 0">
+  <a-entity camera position="0 1.5 0" look-controls></a-entity>
+</a-entity>
+
+      </a-scene>
+	
+</body>
+</html>
